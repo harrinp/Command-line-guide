@@ -1,11 +1,11 @@
 # Guide to making your first command line project with ncurses
 
-### Intro
+## Intro
 Everyone's first programming experience is on some form of command line, usually a hello world in your language of choice.
 
 ```
 int main() {
-    printf("Hello World!");
+    printf("Hello World!\n");
     return EXIT_SUCCESS;
 }
 ```
@@ -24,8 +24,62 @@ I'm not the expert, just a dev who already went through this learning process. T
 
 All example files will be included in the examples folder of this repository.
 
-### Getting started
+## Getting started
 
 #### Hello world v2
 
-Lets redo our old hello world program and give it a
+Lets redo our old hello world program and give it a fancy twist.
+
+Make sure you include nucrses.h
+```
+#include "ncurses.h"
+```
+
+Now we need to initialize ncurses, and make sure we leave ncurses mode when we're done. This is done with initscr() and endwin().
+```
+int main() {
+    initscr();
+    printf("Hello World!\n");
+    endwin();
+    return EXIT_SUCCESS;
+}
+```
+
+Now we need to update our printf with the ncurses variant, printw(). This works the same way as printf. Then we need to refresh() so that the data we've put in is shown. Then theres getch(), getch() is the ncurses function to get input as a character, but here we're using it so that the program will wait for a character before endwin(), where it clears the screen and returns to normal mode.
+
+```
+int main() {
+    initscr();
+    printw("Hello World!");
+    refresh();
+    getch();
+    endwin();
+    return EXIT_SUCCESS;
+}
+```
+Compile - make sure to link ncurses with -lncurses
+```
+gcc helloWorld.c -o hello -lncurses
+```
+And run!
+
+![Not super exciting](images/hello3.png)
+
+Fantastic, but thats not interesting. Lets spice it up. I'm going to now use mvprintw(), its the same as printw but you need to give it two coordinates, y and x, as the first two parameters.
+```
+int main() {
+    initscr();
+    mvprintw(5,5,"Hello World!");
+    refresh();
+    getch();
+    endwin();
+    return EXIT_SUCCESS;
+}
+```
+Result:
+
+![Not super exciting](images/hello4.png)
+
+See? We've moved the hello world down 5 lines down and 5 characters over.
+
+Now lets do something more interesting.
