@@ -252,7 +252,7 @@ moveBalls() and printWindow() are abstracted from each other. One big benefit of
 
 the `while (getch() == ERR){}` waits for any key press and then ends the program if it gets one.
 
-Important to this strategy is using using structs to hold your data, this allows you to keep the printing and logic separate - just pass the address (a pointer) of the game data struct(s) around and manipulate/read them for logic/printing.
+Important to this strategy is using structs to hold your data, this allows you to keep the printing and logic separate - just pass the address (a pointer) of the game data struct(s) around and manipulate/read them for logic/printing.
 
 For this project my print function looked like this:
 ```
