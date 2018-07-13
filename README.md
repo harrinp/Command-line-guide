@@ -34,7 +34,7 @@ All example files will be included in the examples folder of this repository.
 
 Lets redo our old hello world program and give it a fancy twist.
 
-Make sure you include nucrses.h
+Make sure you include ncurses.h
 ```
 #include "ncurses.h"
 ```
