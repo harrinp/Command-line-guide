@@ -36,7 +36,7 @@ Lets redo our old hello world program and give it a fancy twist.
 
 Make sure you include ncurses.h
 ```
-#include "ncurses.h"
+#include <ncurses.h>
 ```
 
 Now we need to initialize ncurses, and make sure we leave ncurses mode when we're done. This is done with initscr() and endwin().
@@ -65,11 +65,11 @@ Compile - make sure to link ncurses with -lncurses
 ```
 gcc helloWorld.c -o hello -lncurses
 ```
-And run!
+And run with `./hello`!
 
 ![Not super exciting](images/hello3.png)
 
-Fantastic, but thats not interesting. Lets spice it up. I'm going to now use mvprintw(), its the same as printw but you need to give it two coordinates, y and x, as the first two parameters.
+Fantastic, but thats not interesting. Lets spice it up. I'm going to now use mvprintw(), its the same as printw but you need to give it two coordinates, y then x, as the first two parameters.
 ```
 int main() {
     initscr();
