@@ -52,3 +52,7 @@ Mkfile.old
 dkms.conf
 
 \.DS_Store
+
+examples/bounce
+
+examples/hello
